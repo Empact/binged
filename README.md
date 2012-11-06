@@ -53,4 +53,4 @@ Binged allows for configuration to be done once using a configure block. To use 
 
 ## Copyright
 
-Copyright (c) 2010 Kevin Faustino. See LICENSE for details.
+Copyright (c) 2012 Kevin Faustino, Ben Woosley. See LICENSE for details.

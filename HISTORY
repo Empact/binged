@@ -1,4 +1,7 @@
-== 1.0.0 (unreleased)
+== 1.0.1 (unreleased)
+* Declare me a co-author and make my repo the official.
+
+== 1.0.0 2012-10-06
 * Migrate to Bing Search API 2.0. See https://datamarket.azure.com/dataset/bing/search and http://go.microsoft.com/fwlink/?LinkID=248077 for more details.
 * Raise a Bing::Search::Error in at least some of the failure modes.
 
