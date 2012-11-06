@@ -25,7 +25,7 @@ module Binged
       context "fetching" do
 
         before(:each) do
-          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.curl')
           @search.containing("ruby")
           @response = @search.fetch
         end
@@ -51,7 +51,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.curl')
           @search.containing("ruby")
         end
 

@@ -121,7 +121,7 @@ module Binged
       context "fetching" do
 
         before(:each) do
-          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Image?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'images.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Image?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'images.curl')
           @search.containing("ruby")
           @response = @search.fetch
         end
@@ -151,7 +151,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Image?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'images.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Image?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'images.curl')
           @search.containing("ruby")
         end
 

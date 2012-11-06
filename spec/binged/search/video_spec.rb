@@ -72,7 +72,7 @@ module Binged
 
       context "fetching" do
         before(:each) do
-          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.json"
+          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.curl"
           @search.containing('RailsConf')
           @response = @search.fetch
         end
@@ -99,7 +99,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.json"
+          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.curl"
           @search.containing('RailsConf')
         end
 
