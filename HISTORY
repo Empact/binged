@@ -1,5 +1,6 @@
 == 1.0.0 (unreleased)
 * Migrate to Bing Search API 2.0. See https://datamarket.azure.com/dataset/bing/search and http://go.microsoft.com/fwlink/?LinkID=248077 for more details.
+* Raise a Bing::Search::Error in at least some of the failure modes.
 
 == 0.3.0 2010-03-15
 

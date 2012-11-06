@@ -71,7 +71,11 @@ module Binged
         response = Net::HTTP.start(url.hostname, url.port, :use_ssl => true) {|http|
           http.request(request)
         }
-        JSON.parse(response.body)
+        begin
+          JSON.parse(response.body)
+        rescue JSON::ParserError => e
+          raise Error, response.body.strip
+        end
       end
 
       # @yieldreturn [Hash] A result from a Bing query

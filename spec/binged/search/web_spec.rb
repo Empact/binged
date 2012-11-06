@@ -22,6 +22,19 @@ module Binged
         @search.query['Web.FileType'].should == :pdf
       end
 
+      context 'errors' do
+        before(:each) do
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'bad_request.curl')
+        end
+
+        it 'raises' do
+          @search.containing('ruby')
+          expect {
+            @search.fetch
+          }.to raise_error(Binged::Search::Error, 'The authorization type you provided is not supported.  Only Basic and OAuth are supported')
+        end
+      end
+
       context "fetching" do
 
         before(:each) do
