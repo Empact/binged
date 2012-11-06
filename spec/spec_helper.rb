@@ -8,10 +8,6 @@ require 'binged'
 FakeWeb.allow_net_connect = false
 Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
 
-def bing_url(url)
-  "http://api.bing.net/json.aspx#{url}&Version=2.2&JsonType=raw&AppId=binged"
-end
-
 def fixture_file(filename)
   return '' if filename == ''
   file_path = File.expand_path(File.dirname(__FILE__) + '/fixtures/' + filename)
