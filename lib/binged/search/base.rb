@@ -1,5 +1,7 @@
 module Binged
   module Search
+    class Error < StandardError
+    end
 
     # @abstract Subclass and set @source to implement a custom Searchable class
     class Base
@@ -65,8 +67,12 @@ module Binged
         query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options
-        response = Net::HTTP.get(url)
-        JSON.parse(response)
+        JSON.parse(Net::HTTP.get(url)).tap do |response|
+          if errors = response["SearchResponse"]["Errors"]
+            errors = errors.first if errors.size == 1
+            raise Error, errors.inspect
+          end
+        end
       end
 
       # @yieldreturn [Hash] A result from a Bing query
@@ -87,7 +93,7 @@ module Binged
         def reset_query
           @query = { :Query => [] }
         end
-        
+
     end
 
   end
