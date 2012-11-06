@@ -17,7 +17,7 @@ module Binged
       end
 
       # Restrict images to those small in size
-      # 
+      #
       # @return [self]
       def small
         filter << 'Size:Small'
@@ -25,7 +25,7 @@ module Binged
       end
 
       # Restrict images to those medium in size
-      # 
+      #
       # @return [self]
       def medium
         filter << 'Size:Medium'
@@ -58,7 +58,7 @@ module Binged
       end
 
       # Restrict images to those that have a square aspect ratio
-      # 
+      #
       # @return [self]
       def square
         filter << 'Aspect:Square'
@@ -66,7 +66,7 @@ module Binged
       end
 
       # Restrict images to those that have a wide aspect ratio
-      # 
+      #
       # @return [self]
       def wide
         filter << 'Aspect:Wide'
@@ -74,55 +74,55 @@ module Binged
       end
 
       # Restrict images to those that have a tall aspect ratio
-      # 
+      #
       # @return [self]
       def tall
         filter << 'Aspect:Tall'
         self
       end
-      
+
       # Restrict images to those that are in color
-      # 
+      #
       # @return [self]
       def color
         filter << 'Color:Color'
-        self      
+        self
       end
-      
+
       # Restrict images to those which contain photos
-      # 
+      #
       # @return [self]
       def photo
         filter << 'Style:Photo'
         self
       end
-      
+
       # Restrict images to those which contain graphics or illustrations
-      # 
+      #
       # @return [self]
       def graphics
         filter << 'Style:Graphics'
         self
       end
-      
+
       # Restrict images to those that are in black and white
-      # 
+      #
       # @return [self]
       def monochrome
         filter << 'Color:Monochrome'
         self
       end
-      
+
       # Restrict images to those which contain faces
-      # 
+      #
       # @return [self]
       def face
         filter << 'Face:Face'
         self
       end
-      
+
       # Restrict images to those which contain portraits(head and shoulders)
-      # 
+      #
       # @return [self]
       def portrait
         filter << 'Face:Portrait'

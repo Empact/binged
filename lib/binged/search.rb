@@ -8,7 +8,7 @@ module Binged
     autoload :Video, "binged/search/video"
 
     module Pageable
-      
+
       # Set the page number of the results to display
       #
       # @param [Fixnum] num The page number of the search results
@@ -28,17 +28,17 @@ module Binged
         @query["#{@source.to_s.capitalize}.Count"] = @results_per_page
         self
       end
-      
+
       protected
-      
+
         def set_paging_defaults
           self.per_page(20).page(1)
         end
-      
+
     end
-    
+
     module Filter
-      
+
       # # Isolate search results to a specific site
       #
       # @example
@@ -50,8 +50,8 @@ module Binged
         @query[:Query] << "site:#{site}"
         self
       end
-      
+
     end
-    
+
   end
 end

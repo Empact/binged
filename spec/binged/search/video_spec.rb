@@ -97,20 +97,20 @@ module Binged
       end
 
       context "iterating over results" do
-        
+
         before(:each) do
           stub_get "http://api.bing.net/json.aspx?AppId=binged&Sources=video&JsonType=raw&Video.Count=20&Version=2.2&Query=RailsConf&Video.Offset=0", "videos.json"
           @search.containing('RailsConf')
         end
-        
+
         it "should be able to iterate through results" do
           @search.should respond_to(:each)
         end
-        
+
         it "should have items" do
           @search.each {|result| result.should_not be_nil }
         end
-        
+
       end
 
     end

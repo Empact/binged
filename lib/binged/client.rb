@@ -12,21 +12,21 @@ module Binged
     end
 
     # Create a web search through Bing
-    # 
+    #
     # @param [String] query The search term to be sent to Bing
     def web(query='')
       Search::Web.new(self,query)
     end
-    
+
     # Create a image search through Bing
-    # 
+    #
     # @param [String] query The search term to be sent to Bing
     def image(query='')
       Search::Image.new(self,query)
     end
-    
+
     # Create a video search through Bing
-    # 
+    #
     # @param [String] query The search term to be sent to Bing
     def video(query='')
       Search::Video.new(self,query)

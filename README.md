@@ -16,18 +16,18 @@ To use binged, you will require a Bing API key. Create one at: [http://www.bing.
 
 ### Instantiate a client
     binged = Binged::Client.new(:api_key => 'binged')
-  
+
 ### Ruby on Rails
-  
+
 Binged allows for configuration to be done once using a configure block. To use binged in your Ruby on Rails project, configure it globally in an initializer.
-    
+
     # config/initializers/binged.rb
     Binged.configure do |config|
       config.api_key = 'api_key'
     end
-      
+
     # Client initialization
-    binged = Binged::Client.new            
+    binged = Binged::Client.new
 
 ### Web Search Example
 
@@ -40,9 +40,9 @@ Binged allows for configuration to be done once using a configure block. To use 
     # Find all portrait Matz images with a wide aspect ratio
     image_search = Binged::Client.new.image
     image_search.containing('Yukihiro Matsumoto').portrait.safe_search(:strict).wide.each {|image| pp image}
-    
+
 ## Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a

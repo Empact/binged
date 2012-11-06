@@ -12,7 +12,7 @@ describe "Binged" do
   end
 
   describe "Flexible interface" do
-    
+
     before(:each) do
       @client = Binged::Client.new
     end
@@ -24,11 +24,11 @@ describe "Binged" do
     it "should provide an interface to image search" do
       @client.image.should be_instance_of(Binged::Search::Image)
     end
-    
+
     it "should provide an interface to video search" do
       @client.video.should be_instance_of(Binged::Search::Video)
     end
-    
+
   end
 
 end
