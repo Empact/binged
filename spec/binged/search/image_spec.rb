@@ -21,17 +21,17 @@ module Binged
         describe "size" do
           it "should filter by small images" do
             @search.small
-            @search.query['Image.Filters'].should include('Size:Small')
+            @search.query['ImageFilters'].should include('Size:Small')
           end
 
           it "should filter by medium images" do
             @search.medium
-            @search.query['Image.Filters'].should include('Size:Medium')
+            @search.query['ImageFilters'].should include('Size:Medium')
           end
 
           it "should filter by large images" do
             @search.large
-            @search.query['Image.Filters'].should include('Size:Large')
+            @search.query['ImageFilters'].should include('Size:Large')
           end
 
         end
@@ -54,12 +54,12 @@ module Binged
 
           it "should filter for images with a specified height in pixels" do
             @search.height 100
-            @search.query['Image.Filters'].should include('Size:Height:100')
+            @search.query['ImageFilters'].should include('Size:Height:100')
           end
 
           it "should filter for images with a specified width in pixels" do
             @search.width 150
-            @search.query['Image.Filters'].should include('Size:Width:150')
+            @search.query['ImageFilters'].should include('Size:Width:150')
           end
 
         end
@@ -70,7 +70,7 @@ module Binged
 
             it "should restrict image results to those with #{aspect} aspect ratios" do
               @search.send aspect.downcase.to_sym
-              @search.query['Image.Filters'].should include("Aspect:#{aspect}")
+              @search.query['ImageFilters'].should include("Aspect:#{aspect}")
             end
 
           end
@@ -83,7 +83,7 @@ module Binged
 
             it "should restrict image results to those which are in #{color}" do
               @search.send color.downcase.to_sym
-              @search.query["Image.Filters"].should include("Color:#{color}")
+              @search.query["ImageFilters"].should include("Color:#{color}")
             end
 
           end
@@ -96,7 +96,7 @@ module Binged
 
             it "should restrict image results to those which have a #{style} style" do
               @search.send style.downcase.to_sym
-              @search.query["Image.Filters"].should include("Style:#{style}")
+              @search.query["ImageFilters"].should include("Style:#{style}")
             end
 
           end
@@ -109,7 +109,7 @@ module Binged
 
             it "should restrict image results to those which contain a #{face}" do
               @search.send face.downcase.to_sym
-              @search.query["Image.Filters"].should include("Face:#{face}")
+              @search.query["ImageFilters"].should include("Face:#{face}")
             end
 
           end

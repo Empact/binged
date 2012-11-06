@@ -89,6 +89,14 @@ module Binged
         self
       end
 
+      # Restrict images to those that are in black and white
+      #
+      # @return [self]
+      def monochrome
+        filter << 'Color:Monochrome'
+        self
+      end
+
       # Restrict images to those which contain photos
       #
       # @return [self]
@@ -102,14 +110,6 @@ module Binged
       # @return [self]
       def graphics
         filter << 'Style:Graphics'
-        self
-      end
-
-      # Restrict images to those that are in black and white
-      #
-      # @return [self]
-      def monochrome
-        filter << 'Color:Monochrome'
         self
       end
 
@@ -132,11 +132,11 @@ module Binged
       private
 
         def create_filter_callback
-          @callbacks << Proc.new { |query| query['Image.Filters'] = query['Image.Filters'].join('+') if query['Image.Filters'] }
+          @callbacks << Proc.new { |query| query['ImageFilters'] = query['ImageFilters'].join('+') if query['ImageFilters'] && !query['ImageFilters'].empty? }
         end
 
         def filter
-          @query['Image.Filters'] ||= []
+          @query['ImageFilters'] ||= []
         end
 
     end
