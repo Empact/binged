@@ -1,3 +1,6 @@
+== 1.1.0 2012-10-06
+* Switch from net/http to faraday for pluggable http requests.
+
 == 1.0.1 2012-10-06
 * Declare me a co-author and make my repo the official.
 
