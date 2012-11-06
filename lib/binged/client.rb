@@ -8,6 +8,8 @@ module Binged
     # @param [Hash] options the options to create a client with.
     # @option options [String] :account_key The Bing API key used to make all API calls.
     def initialize(options = {})
+      invalid_options = options.keys - [:account_key]
+      raise ArgumentError, "Invalid options: #{invalid_options.inspect}." unless invalid_options.empty?
       @account_key = options[:account_key] || Binged.account_key
     end
 
