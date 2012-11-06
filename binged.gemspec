@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "binged"
-  s.version = "0.3.0"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kevin Faustino"]
-  s.date = "2012-06-03"
+  s.date = "2012-11-06"
   s.description = "A wrapper for the bing api"
   s.email = "kevin.faustino@gmail.com"
   s.extra_rdoc_files = [
@@ -33,10 +33,12 @@ Gem::Specification.new do |s|
     "lib/binged/search/image.rb",
     "lib/binged/search/video.rb",
     "lib/binged/search/web.rb",
+    "spec/binged/search/client_spec.rb",
     "spec/binged/search/image_spec.rb",
     "spec/binged/search/video_spec.rb",
     "spec/binged/search/web_spec.rb",
     "spec/binged_spec.rb",
+    "spec/fixtures/bad_request.curl",
     "spec/fixtures/images.curl",
     "spec/fixtures/videos.curl",
     "spec/fixtures/web.curl",
