@@ -5,13 +5,13 @@
 
 Gem::Specification.new do |s|
   s.name = "binged"
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kevin Faustino"]
+  s.authors = ["Kevin Faustino", "Ben Woosley"]
   s.date = "2012-11-06"
   s.description = "A wrapper for the bing api"
-  s.email = "kevin.faustino@gmail.com"
+  s.email = "ben.woosley@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE",
     "README.md"
@@ -47,7 +47,7 @@ Gem::Specification.new do |s|
     "spec/support/shared_examples/filter.rb",
     "spec/support/shared_examples/pageable.rb"
   ]
-  s.homepage = "http://github.com/kfaustino/binged"
+  s.homepage = "http://github.com/Empact/binged"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
   s.summary = "A wrapper for the bing api"
