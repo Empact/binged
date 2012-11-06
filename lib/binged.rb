@@ -1,7 +1,7 @@
 require 'active_support/core_ext/object/to_query'
 require 'json'
 require 'hashie'
-require 'net/https'
+require 'faraday'
 require 'uri'
 
 require 'binged/hashie_extensions'

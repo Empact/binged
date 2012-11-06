@@ -55,6 +55,12 @@ module Binged
         @fetch
       end
 
+      def connection
+        Faraday.new.tap do |faraday|
+          faraday.basic_auth(@client.account_key, @client.account_key)
+        end
+      end
+
       # Performs a GET call to Bing API
       #
       # @return [Hash] Hash of Bing API response
@@ -69,11 +75,10 @@ module Binged
         query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options
-        request = Net::HTTP::Get.new(url.request_uri)
-        request.basic_auth(@client.account_key, @client.account_key)
-        response = Net::HTTP.start(url.hostname, url.port, :use_ssl => true) {|http|
-          http.request(request)
-        }
+
+
+
+        response = connection.get(url)
         begin
           JSON.parse(response.body)
         rescue JSON::ParserError => e

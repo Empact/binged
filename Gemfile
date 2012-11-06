@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem "hashie"
+gem 'faraday'
 gem 'activesupport', '>= 3.0.0'
 
 group :development do
