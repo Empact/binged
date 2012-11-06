@@ -1,7 +1,7 @@
 require 'active_support/core_ext/object/to_query'
 require 'json'
 require 'hashie'
-require 'net/http'
+require 'net/https'
 require 'uri'
 
 require 'binged/hashie_extensions'
@@ -21,9 +21,9 @@ module Binged
   # For example:
   #
   #     Binged.configure do |config|
-  #       config.api_key = 'api_key'
+  #       config.account_key = 'account_key'
   #     end
-  attr_accessor :api_key
+  attr_accessor :account_key
 
   def configure
     yield self

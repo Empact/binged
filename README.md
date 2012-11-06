@@ -15,7 +15,7 @@ To use binged, you will require a Bing API key. Create one at: [http://www.bing.
 ## Usage
 
 ### Instantiate a client
-    binged = Binged::Client.new(:api_key => 'binged')
+    binged = Binged::Client.new(:account_key => 'binged')
 
 ### Ruby on Rails
 
@@ -23,7 +23,7 @@ Binged allows for configuration to be done once using a configure block. To use 
 
     # config/initializers/binged.rb
     Binged.configure do |config|
-      config.api_key = 'api_key'
+      config.account_key = 'account_key'
     end
 
     # Client initialization

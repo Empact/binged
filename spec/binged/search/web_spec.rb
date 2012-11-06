@@ -9,7 +9,7 @@ module Binged
       include AnyPageable
 
       before(:each) do
-        @client = Binged::Client.new(:api_key => 'binged')
+        @client = Binged::Client.new(:account_key => 'binged')
         @search = Web.new(@client)
       end
 
@@ -25,7 +25,7 @@ module Binged
       context "fetching" do
 
         before(:each) do
-          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.json')
           @search.containing("ruby")
           @response = @search.fetch
         end
@@ -42,8 +42,8 @@ module Binged
         it "should support dot notation" do
           result = @response.results.first
           result.title.should == "Ruby Programming Language"
-          result.description.should == "Ruby is… A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is ..."
-          result.url.should == "http://www.ruby-lang.org/en/"
+          result.description.should == "Participate in a friendly and growing community. Mailing Lists: Talk about Ruby with programmers from all around the world. User Groups: Get in contact with Rubyists ..."
+          result.url.should == "http://www.ruby-lang.org/"
         end
 
       end
@@ -51,7 +51,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get("http://api.bing.net/json.aspx?Web.Offset=0&Sources=Web&AppId=binged&Query=ruby&JsonType=raw&Version=2.2&Web.Count=20", 'web.json')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'web.json')
           @search.containing("ruby")
         end
 

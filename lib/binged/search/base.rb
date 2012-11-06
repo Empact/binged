@@ -8,7 +8,7 @@ module Binged
       include Enumerable
       attr_reader :client, :query, :source
 
-      BASE_URI = 'http://api.bing.net/json.aspx?'
+      BASE_URI = 'https://api.datamarket.azure.com/Data.ashx/Bing/Search/'
 
       SUPPORTED_ADULT_OPTIONS = [:off, :moderate, :strict]
 
@@ -49,7 +49,7 @@ module Binged
       def fetch
         if @fetch.nil?
           response = perform
-          @fetch = Hashie::Mash.new(response["SearchResponse"][self.source.to_s.capitalize])
+          @fetch = Hashie::Mash.new(response["d"])
         end
 
         @fetch
@@ -59,20 +59,19 @@ module Binged
       #
       # @return [Hash] Hash of Bing API response
       def perform
-        url = URI.parse BASE_URI
+        url = URI.parse [BASE_URI, self.source.to_s.capitalize].join
         query = @query.dup
-        query[:Query] = query[:Query].join(' ')
-        query[:Sources] = self.source
+        query[:Query] = %{'#{query[:Query].join(' ')}'}
         callbacks.each {|callback| callback.call(query) }
         query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options
-        JSON.parse(Net::HTTP.get(url)).tap do |response|
-          if errors = response["SearchResponse"]["Errors"]
-            errors = errors.first if errors.size == 1
-            raise Error, errors.inspect
-          end
-        end
+        request = Net::HTTP::Get.new(url.request_uri)
+        request.basic_auth(@client.account_key, @client.account_key)
+        response = Net::HTTP.start(url.hostname, url.port, :use_ssl => true) {|http|
+          http.request(request)
+        }
+        JSON.parse(response.body)
       end
 
       # @yieldreturn [Hash] A result from a Bing query
@@ -87,7 +86,7 @@ module Binged
       private
 
         def default_options
-          {:AppId => @client.api_key, :JsonType => 'raw', :Version => '2.2'  }
+          { '$format' => 'JSON' }
         end
 
         def reset_query

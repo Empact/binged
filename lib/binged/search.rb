@@ -15,7 +15,7 @@ module Binged
       # @return [self]
       def page(num=1)
         @offset = num - 1
-        @query["#{@source.to_s.capitalize}.Offset"] = @results_per_page * @offset
+        @query["$skip"] = @results_per_page * @offset
         self
       end
 
@@ -25,7 +25,7 @@ module Binged
       # @return [self]
       def per_page(num)
         @results_per_page = num
-        @query["#{@source.to_s.capitalize}.Count"] = @results_per_page
+        @query["$top"] = @results_per_page
         self
       end
 

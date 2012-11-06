@@ -8,7 +8,7 @@ module Binged
       include AnyPageable
 
       before(:each) do
-        @client = Binged::Client.new(:api_key => 'binged')
+        @client = Binged::Client.new(:account_key => 'binged')
         @search = Video.new(@client)
       end
 
@@ -72,7 +72,7 @@ module Binged
 
       context "fetching" do
         before(:each) do
-          stub_get "http://api.bing.net/json.aspx?AppId=binged&Sources=video&JsonType=raw&Video.Count=20&Version=2.2&Query=RailsConf&Video.Offset=0", "videos.json"
+          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.json"
           @search.containing('RailsConf')
           @response = @search.fetch
         end
@@ -88,10 +88,10 @@ module Binged
 
         it "should support dot notation" do
           video = @response.results.first
-          video.title.should == 'RailsConf Europe 08: Jeremy Kemper (37signals), Performance on Rails'
-          video.play_url.should == 'http://railsconfeurope.blip.tv/file/1555719/'
-          video.source_title.should == 'blip.tv'
-          video.static_thumbnail.should_not be_nil
+          video.title.should == 'RailsConf 2010: Gary Vaynerchuk'
+          video.media_url.should == 'http://www.youtube.com/watch?v=-QWHkcCP3tA'
+          video.display_url.should == 'http://www.bing.com/videos/search?mkt=en-US&q=&FORM=MONITR&id=56D112C9F90FD808059D56D112C9F90FD808059D&view=detail'
+          video.thumbnail.media_url.should == 'http://ts3.mm.bing.net/th?id=U.4982115564781686&pid=15.1'
         end
 
       end
@@ -99,7 +99,7 @@ module Binged
       context "iterating over results" do
 
         before(:each) do
-          stub_get "http://api.bing.net/json.aspx?AppId=binged&Sources=video&JsonType=raw&Video.Count=20&Version=2.2&Query=RailsConf&Video.Offset=0", "videos.json"
+          stub_get "https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Video?%24format=JSON&%24skip=0&%24top=20&Query=%27RailsConf%27", "videos.json"
           @search.containing('RailsConf')
         end
 
