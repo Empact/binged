@@ -61,8 +61,11 @@ module Binged
       def perform
         url = URI.parse [BASE_URI, self.source.to_s.capitalize].join
         query = @query.dup
-        query[:Query] = %{'#{query[:Query].join(' ')}'}
+        query[:Query] = query[:Query].join(' ')
         callbacks.each {|callback| callback.call(query) }
+        query.each do |key, value|
+          query[key] = %{'#{value}'} unless key[0] == '$' || ['Latitude', 'Longitude'].include?(key)
+        end
         query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options

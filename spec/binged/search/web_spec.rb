@@ -24,7 +24,8 @@ module Binged
 
       context 'errors' do
         before(:each) do
-          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27", 'bad_request.curl')
+          stub_get("https://binged:binged@api.datamarket.azure.com:443/Data.ashx/Bing/Search/Web?%24format=JSON&%24skip=0&%24top=20&Query=%27ruby%27",
+            'bad_request.curl')
         end
 
         it 'raises' do
