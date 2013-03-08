@@ -36,6 +36,11 @@ module Binged
       end
       alias safe_search adult
 
+      def market(market_option)
+        @query[:Market] = market_option if market_option.match(/\w{2}-\w{2}/)
+        self
+      end
+      
       # Clears all filters to perform a new search
       def clear
         @fetch = nil

@@ -50,6 +50,13 @@ module Binged
           end
         end
 
+        describe "market" do
+          it "should filter for language" do
+            @search.market('en-GB')
+            @search.query[:Market].should == "en-GB"
+          end
+        end
+        
         describe "size" do
 
           it "should filter for images with a specified height in pixels" do
