@@ -1,5 +1,8 @@
 # Overview
 
+[![Gem Version](https://badge.fury.io/rb/binged.png)](http://badge.fury.io/rb/binged)
+
+
 ## About Binged
 
 A Ruby wrapper for the Bing API. DSL inspired by jnunemaker's [Twitter Gem](http://github.com/jnunemaker/twitter) Search API wrapper.

@@ -65,7 +65,7 @@ module Binged
       #
       # @return [Hash] Hash of Bing API response
       def perform
-        url = URI.parse [BASE_URI, self.source.to_s.capitalize].join
+        url = URI.parse [BASE_URI, self.source.to_s.camelize].join
         query = @query.dup
         query[:Query] = query[:Query].join(' ')
         callbacks.each {|callback| callback.call(query) }
@@ -75,8 +75,6 @@ module Binged
         query_options = default_options.merge(query).to_query
         query_options.gsub! '%2B', '+'
         url.query = query_options
-
-
 
         response = connection.get(url)
         begin

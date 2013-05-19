@@ -34,6 +34,13 @@ module Binged
       Search::Video.new(self,query)
     end
 
+    # Create a spelling suggestions search through Bing
+    #
+    # @param [String] query The search term to be sent to Bing
+    def spelling(query='')
+      Search::Spelling.new(self,query)
+    end
+
   end
 
 end
