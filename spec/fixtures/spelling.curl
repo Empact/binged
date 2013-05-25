@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/8.0
+X-Content-Type-Options: nosniff
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: false
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Max-Age: 604800
+ActivityID: be3966bf-d405-43a2-b3ac-5716fd4c783e
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 19 May 2013 21:03:55 GMT
+Content-Length: 252
+
+{"d":{"results":[{"__metadata":{"uri":"https://api.datamarket.azure.com/Data.ashx/Bing/Search/SpellingSuggestions?Query=\u0027propaghandhi\u0027&$skip=0&$top=1","type":"SpellResult"},"ID":"d5204106-6400-4fcb-b187-d2eb26b230d6","Value":"propagandhi"}]}}

@@ -29,6 +29,10 @@ describe "Binged" do
       @client.video.should be_instance_of(Binged::Search::Video)
     end
 
+    it "should provide an interface to spelling suggestions search" do
+      @client.spelling.should be_instance_of(Binged::Search::Spelling)
+    end
+
   end
 
 end

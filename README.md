@@ -1,5 +1,8 @@
 # Overview
 
+[![Gem Version](https://badge.fury.io/rb/binged.png)](http://badge.fury.io/rb/binged)
+
+
 ## About Binged
 
 A Ruby wrapper for the Bing API. DSL inspired by jnunemaker's [Twitter Gem](http://github.com/jnunemaker/twitter) Search API wrapper.
@@ -40,6 +43,12 @@ Binged allows for configuration to be done once using a configure block. To use 
     # Find all portrait Matz images with a wide aspect ratio
     image_search = Binged::Client.new.image
     image_search.containing('Yukihiro Matsumoto').portrait.safe_search(:strict).wide.each {|image| pp image}
+
+### Spelling Suggestion Example
+
+    # Get suggestions for the spelling of 'propaghandhi'
+    spelling_check = Binged::Client.new.spelling
+    spelling_check.containing('propaghandhi').suggestions
 
 ## Note on Patches/Pull Requests
 
