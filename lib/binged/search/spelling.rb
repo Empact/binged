@@ -15,6 +15,11 @@ module Binged
         set_paging_defaults
       end
 
+
+      def suggestions
+        fetch.results.map{|r| r.value }
+      end
+
     end
   end
 end

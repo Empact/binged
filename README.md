@@ -44,6 +44,12 @@ Binged allows for configuration to be done once using a configure block. To use 
     image_search = Binged::Client.new.image
     image_search.containing('Yukihiro Matsumoto').portrait.safe_search(:strict).wide.each {|image| pp image}
 
+### Spelling Suggestion Example
+
+    # Get suggestions for the spelling of 'propaghandhi'
+    spelling_check = Binged::Client.new.spelling
+    spelling_check.containing('propaghandhi').suggestions
+
 ## Note on Patches/Pull Requests
 
 * Fork the project.

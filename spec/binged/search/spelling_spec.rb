@@ -31,8 +31,6 @@ module Binged
         end
       end
 
-      # curl -v "https://6yPcv6TxoRi6Rrkq2HjicGHZz1NnE2MGx3Xk7XLJrM0:6yPcv6TxoRi6Rrkq2HjicGHZz1NnE2MGx3Xk7XLJrM0@api.datamarket.azure.com/Data.ashx/Bing/Search/SpellingSuggestions?%24format=JSON&%24skip=0&%24top=20&Query=%27amstrong%27"
-
       context "fetching" do
 
         before(:each) do
@@ -70,6 +68,10 @@ module Binged
 
         it "should have items" do
           @search.each {|item| item.should_not be_nil }
+        end
+
+        it "should also work using suggestions method" do
+          @search.suggestions.should == ["propagandhi"]
         end
 
       end
