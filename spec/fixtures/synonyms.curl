@@ -1,0 +1,17 @@
+HTTP/1.1 200 OK
+Cache-Control: private
+Content-Type: application/json; charset=utf-8
+Server: Microsoft-IIS/7.5
+X-Content-Type-Options: nosniff
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: false
+Access-Control-Allow-Headers: Authorization
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Max-Age: 604800
+ActivityID: 9aa22e18-6408-4583-bf09-3ccb5b1904a9
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 06 Nov 2012 07:36:46 GMT
+Content-Length: 389
+
+{"d":{"results":[{"__metadata":{"uri":"https://api.datamarket.azure.com/Data.ashx/Bing/Synonyms/GetSynonyms?Query=\u0027ruby\u0027&$skip=0&$top=1","type":"GetSynonymsEntitySet"},"Synonym":"rubies"},{"__metadata":{"uri":"https://api.datamarket.azure.com/Data.ashx/Bing/Synonyms/GetSynonyms?Query=\u0027ruby\u0027&$skip=1&$top=1","type":"GetSynonymsEntitySet"},"Synonym":"ruby gemstone"}]}}

@@ -41,6 +41,12 @@ Binged allows for configuration to be done once using a configure block. To use 
     image_search = Binged::Client.new.image
     image_search.containing('Yukihiro Matsumoto').portrait.safe_search(:strict).wide.each {|image| pp image}
 
+### Synonyms Example
+    # Find all alternate entity names of Sun
+    synonyms = Binged::Client.new.synonyms
+    synonyms.related('Sun').each {|syn| pp syn}
+
+
 ## Note on Patches/Pull Requests
 
 * Fork the project.

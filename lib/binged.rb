@@ -13,6 +13,7 @@ require 'binged/hashie_extensions'
 module Binged
   autoload :Client, "binged/client"
   autoload :Search, "binged/search"
+  autoload :Synonyms, "binged/synonyms"
 
   extend self
 

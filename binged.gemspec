@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = "binged"
-  s.version = "1.1.1"
+  s.version = "1.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Kevin Faustino", "Ben Woosley"]
+  s.authors = ["Kevin Faustino", "Ben Woosley", "AlturaLabs"]
   s.date = "2013-03-08"
   s.description = "A wrapper for the bing api"
   s.email = "dev@alturalabs.com"
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "binged.gemspec",
     "lib/binged.rb",
     "lib/binged/client.rb",
+    "lib/binged/synonyms.rb",
     "lib/binged/hashie_extensions.rb",
     "lib/binged/search.rb",
     "lib/binged/search/base.rb",
@@ -47,11 +48,11 @@ Gem::Specification.new do |s|
     "spec/support/shared_examples/filter.rb",
     "spec/support/shared_examples/pageable.rb"
   ]
-  s.homepage = "http://github.com/Empact/binged"
+  s.homepage = "http://github.com/alturalabs/binged"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
   s.summary = "A wrapper for the bing api"
-
+  s.license = 'GPL'
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
@@ -59,7 +60,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<hashie>, [">= 0"])
       s.add_runtime_dependency(%q<faraday>, [">= 0"])
       s.add_runtime_dependency(%q<activesupport>, [">= 3.0.0"])
-      s.add_development_dependency(%q<rspec>, [">= 1.3.0"])
+      s.add_development_dependency(%q<rspec>, ["1.3.2"])
       s.add_development_dependency(%q<fakeweb>, [">= 1.2.8"])
       s.add_development_dependency(%q<yard>, [">= 0"])
     else

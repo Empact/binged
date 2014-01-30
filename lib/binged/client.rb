@@ -33,6 +33,13 @@ module Binged
     def video(query='')
       Search::Video.new(self,query)
     end
+    
+    # Create a synonyms search through Bing
+    #
+    # @param [String] query The search term to be sent to Bing
+    def synonyms(query='')
+      Synonyms.new(self,query)
+    end
 
   end
 
