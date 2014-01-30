@@ -1,3 +1,6 @@
+== 1.2.0 2014-01-30
+* Added Synonyms API support
+
 == 1.1.0 2012-10-06
 * Switch from net/http to faraday for pluggable http requests.
 
